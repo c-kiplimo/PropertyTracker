@@ -3,6 +3,8 @@ package com.collicode.propertytracker.infrastructure.projections;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import lombok.Data;
 import lombok.Getter;
@@ -15,12 +17,13 @@ import lombok.Setter;
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String address;
-    private String city;
-    private String state;
-    private String zipCode;
-    private BigDecimal price;
+    private long  roomId;
+    private String condition;
+    private long apartmentId;
+    private LocalDateTime createdAt;
+    private  LocalDateTime updatedAt;
+    private String auditInfo;
+
 
 
 }
