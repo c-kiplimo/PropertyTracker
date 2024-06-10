@@ -22,8 +22,6 @@ public class Apartment {
     private LocalDateTime updatedAt;
     private String auditInfo;
 
-
-
 }
 
 
