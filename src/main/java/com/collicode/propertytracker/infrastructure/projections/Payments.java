@@ -16,8 +16,8 @@ import java.time.LocalDateTime;
 public class Payments {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long tenantId;
     private long paymentId;
+    private long tenantId;
     private BigDecimal balance;
     private BigDecimal amountDue;
     private BigDecimal transactionCost;
