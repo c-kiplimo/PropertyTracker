@@ -23,7 +23,7 @@ public class Payments {
     private BigDecimal transactionCost;
     private LocalDate paymentDate;
     private LocalDate dueDate;
-    private long transactionType;
+    private String transactionType;
     private BigDecimal amountPaid;
     private BigDecimal penaltyFee;
     private LocalDateTime createdAt;
