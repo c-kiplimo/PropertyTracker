@@ -10,30 +10,13 @@ spring:
     enabled: true
     validate-on-migrate: true
     mixed: true
-  jpa:
-    hibernate:
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
-      # comment out ddl-auto as needed
-      ddl-auto: none
-      show-sql: true
-
-
-primary:
-  jdbc:
-
+  datasource:
     url: jdbc:postgresql://localhost:5432/property
     username: postgres
     password: smartcode
-    timeout: '40000'
-    dialect: org.hibernate.dialect.PostgreSQLDialect
-    driverclassname: org.postgresql.Driver
-    show-sql: 'false'
-    hibernate:
-      ddl-auto: none
-    minimumIdle: '100'
-    poolName: Master
-    poolSize: '100'
-    idleTimeout: '2000'
-    schema: 'property_report'
+    hikari:
+      schema: property_report
+  jpa:
+    properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate.ddl-auto: none
+    hibernate.show-sql: true
