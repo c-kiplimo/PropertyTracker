@@ -4,6 +4,6 @@ CREATE TABLE IF NOT EXISTS tbl_room (
     apartment_id bigint NOT NULL,
     created_at timestamp NOT NULL,
     updated_at timestamp NULL,
-    audit_info timestamp DEFAULT '{}',
+    audit_info text DEFAULT '{}',
     PRIMARY KEY (room_id)
 );
