@@ -17,11 +17,11 @@ public class Tenant {
     private String firstName;
     private String lastName;
     private String address;
-    private long phoneNumber;
+    private String phoneNumber;
     private String kraPin;
     private String email;
-    private long idNumber;
-    private long passportNumber;
+    private String idNumber;
+    private String passportNumber;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private String auditInfo;
