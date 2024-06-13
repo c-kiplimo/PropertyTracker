@@ -17,16 +17,16 @@ public class Payments {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long paymentId;
-    private long tenantId;
+    private long tenantId;//select
     private BigDecimal balance;
     private BigDecimal amountDue;
     private BigDecimal transactionCost;
-    private LocalDate paymentDate;
+    private LocalDate paymentDate;//select
     private LocalDate dueDate;
-    private String transactionType;
-    private BigDecimal amountPaid;
+    private String transactionType;//select
+    private BigDecimal amountPaid;//select
     private BigDecimal penaltyFee;
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt;//select
     private LocalDateTime updatedAt;
     private String auditInfo;
 
