@@ -23,7 +23,6 @@ public class ApartmentServiceImpl implements ApartmentService {
     public void createApartment(ApartmentRequestDTO apartmentRequestDTO) {
         try {
             Apartment apartment = new Apartment();
-            apartment.setApartmentId(apartmentRequestDTO.getApartmentId());
             apartment.setAgentCode(apartmentRequestDTO.getAgentCode());
             apartment.setApartmentName(apartmentRequestDTO.getApartmentName());
             apartment.setCreatedAt(LocalDateTime.now());
