@@ -21,6 +21,7 @@ public class RoomServiceImpl implements RoomService {
   public void createRoom(RoomRequestDTO roomRequestDTO) {
     try {
       Room room = new Room();
+      room.setRoomName(roomRequestDTO.getRoomName());
       room.setCondition(roomRequestDTO.getCondition());
       room.setApartmentId(roomRequestDTO.getApartmentId());
       room.setCreatedAt(LocalDateTime.now());

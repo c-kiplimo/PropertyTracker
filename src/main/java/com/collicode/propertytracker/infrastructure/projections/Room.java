@@ -19,6 +19,7 @@ public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long  roomId;
+    private String roomName;
     private String condition;
     private long apartmentId;
     private LocalDateTime createdAt;

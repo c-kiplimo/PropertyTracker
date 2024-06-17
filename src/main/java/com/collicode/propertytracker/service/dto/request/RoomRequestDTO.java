@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 public class RoomRequestDTO {
   private String condition;
+  private String roomName;
   private long apartmentId;
 
 }
