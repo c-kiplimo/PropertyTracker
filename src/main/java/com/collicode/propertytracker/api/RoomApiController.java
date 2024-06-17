@@ -5,17 +5,15 @@ import com.collicode.propertytracker.service.dto.request.RoomRequestDTO;
 import com.collicode.propertytracker.service.spec.RoomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PostFilter;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/api/v1/rooms")
 @RestController
 @RequiredArgsConstructor
 public class RoomApiController {
   private final RoomService roomService;
-
+@PostMapping
   public ResponseEntity<?> createRoom(@RequestHeader("X-RequestId") String requestId,
       @RequestBody RoomRequestDTO roomRequestDTO) {
     try {
