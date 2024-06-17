@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS tbl_payments
 (
-    payment_id    SERIAL,
+    payment_id    bigint NOT NULL,
     tenant_id     bigint NOT NULL,
     balance       numeric  NOT NULL,
     amount_due     numeric NULL,

@@ -1,6 +1,6 @@
-CREATE TABLE IF NOT EXISTS tbl_tenant
+CREATE TABLE IF NOT EXISTS tbl_tenants
 (
-    tenant_id   SERIAL,
+    tenant_id   bigint NOT NULL,
     first_name    varchar(255) NOT NULL,
     last_name    varchar(255) NOT NULL,
     address    varchar(255) NOT NULL,
