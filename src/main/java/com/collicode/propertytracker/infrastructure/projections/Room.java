@@ -14,10 +14,15 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "tbl_room")
+@Table(name = "tbl_rooms")
 public class Room {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(
+        name = "room_sequence",
+        sequenceName = "room_sequence",
+        allocationSize = 1
+    )
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "room_sequence")
     private long  roomId;
     private String roomName;
     private String condition;

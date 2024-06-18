@@ -7,12 +7,17 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "tbl_Tenant")
+@Table(name = "tbl_tenants")
 @Getter
 @Setter
 public class Tenant {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(
+        name = "tenant_sequence",
+        sequenceName = "tenant_sequence",
+        allocationSize = 1
+    )
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "tenant_sequence")
     private long tenantId;
     private String firstName;
     private String lastName;

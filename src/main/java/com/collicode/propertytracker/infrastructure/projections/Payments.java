@@ -15,7 +15,12 @@ import java.time.LocalDateTime;
 
 public class Payments {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(
+        name = "payment_sequence",
+        sequenceName = "payment_sequence",
+        allocationSize = 1
+    )
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "payment_sequence")
     private long paymentId;
     private long tenantId;//select
     private BigDecimal balance;

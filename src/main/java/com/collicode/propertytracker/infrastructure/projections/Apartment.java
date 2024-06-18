@@ -7,12 +7,17 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Entity
-@Table (name = "tbl_apartment")
+@Table (name = "tbl_apartments")
 @Getter
 @Setter
 public class Apartment {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(
+        name = "apartment_sequence",
+        sequenceName = "apartment_sequence",
+        allocationSize = 1
+    )
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "apartment_sequence")
     private long apartmentId;
     private long agentCode;
     private String apartmentName;
