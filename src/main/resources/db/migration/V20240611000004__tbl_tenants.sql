@@ -1,3 +1,5 @@
+CREATE SEQUENCE IF NOT EXISTS tenants_sequence START WITH 1 INCREMENT BY 1;
+
 CREATE TABLE IF NOT EXISTS tbl_tenants
 (
     tenant_id   bigint NOT NULL,
