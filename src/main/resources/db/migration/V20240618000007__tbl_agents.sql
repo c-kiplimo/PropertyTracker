@@ -1,3 +1,5 @@
+CREATE SEQUENCE IF NOT EXISTS agents_sequence START WITH 1 INCREMENT BY 1;
+
 CREATE TABLE IF NOT EXISTS tbl_agents
 (
     agent_code      bigint       NOT NULL PRIMARY KEY,

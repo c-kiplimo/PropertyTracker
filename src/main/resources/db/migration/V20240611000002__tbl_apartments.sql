@@ -1,3 +1,5 @@
+CREATE SEQUENCE IF NOT EXISTS apartments_sequence START WITH 1 INCREMENT BY 1;
+
 CREATE TABLE IF NOT EXISTS tbl_apartments
 (
     apartment_id      bigint       NOT NULL,

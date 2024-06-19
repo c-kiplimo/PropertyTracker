@@ -1,3 +1,5 @@
+CREATE SEQUENCE IF NOT EXISTS users_sequence START WITH 1 INCREMENT BY 1;
+
 CREATE TABLE IF NOT EXISTS tbl_users
 (
     id                         bigint       NOT NULL PRIMARY KEY,
