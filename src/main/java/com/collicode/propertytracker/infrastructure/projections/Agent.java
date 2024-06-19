@@ -39,7 +39,6 @@ public class Agent {
   private String reason;
   private String refId;
   private String knewUsThrough;
-  @Column(nullable = false)
   private LocalDateTime createdAt;
   private LocalDateTime updatedAt;
   private String auditInfo;

@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS tbl_agents
     agent_code      bigint       NOT NULL PRIMARY KEY,
     user_id         bigint       NOT NULL UNIQUE,
     first_name      varchar(255) NOT NULL,
-    last_name       bigint(255) NOT NULL,
+    last_name       varchar(255) NOT NULL,
     full_name       varchar(255),
     msisdn          varchar(255) UNIQUE,
     email_address   varchar(255) UNIQUE,

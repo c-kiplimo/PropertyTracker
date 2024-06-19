@@ -5,7 +5,6 @@ import com.collicode.propertytracker.service.dto.request.RoomRequestDTO;
 import com.collicode.propertytracker.service.spec.RoomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PostFilter;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/api/v1/rooms")
@@ -22,6 +21,14 @@ public class RoomApiController {
     }catch (StorageException ex){
       return ResponseEntity.status(400).body(ex.getMessage());
     }catch (Exception ex){
+      return ResponseEntity.status(500).body(ex.getMessage());
+    }
+  }
+  @GetMapping("/{apartmentId}")
+  public ResponseEntity<?> fetchRoomsByApartmentId(@RequestHeader("X-RequestId") String requestId,@PathVariable long apartmentId) {
+    try {
+      return ResponseEntity.ok().body(roomService.fetchRoomsByApartmentId(apartmentId));
+    } catch (Exception ex) {
       return ResponseEntity.status(500).body(ex.getMessage());
     }
   }

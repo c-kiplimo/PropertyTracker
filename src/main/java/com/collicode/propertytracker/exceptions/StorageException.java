@@ -7,10 +7,6 @@ public class StorageException extends RuntimeException {
     }
 
 
-    public StorageException(long id) {
-        super(String.valueOf(id));
-    }
-
     public static StorageException exception(String message) {
         return new StorageException(message);
     }
