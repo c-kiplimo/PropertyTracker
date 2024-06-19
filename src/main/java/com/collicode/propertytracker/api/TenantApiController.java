@@ -18,7 +18,7 @@ public class TenantApiController {
     private final TenantService tenantService;
     @PostMapping
     public ResponseEntity<?> createTenant(@RequestHeader("X-RequestId") String requestId,
-                                        @RequestBody TenantRequestDTO tenantRequestDTO) {
+        @RequestBody TenantRequestDTO tenantRequestDTO) {
         try {
             tenantService.createTenant(tenantRequestDTO);
             return ResponseEntity.ok().body(tenantRequestDTO);

@@ -24,5 +24,13 @@ public class RoomApiController {
       return ResponseEntity.status(500).body(ex.getMessage());
     }
   }
+  @GetMapping("/{apartmentId}")
+  public ResponseEntity<?> fetchRoomsByApartmentId(@RequestHeader("X-RequestId") String requestId,@PathVariable long apartmentId) {
+    try {
+      return ResponseEntity.ok().body(roomService.fetchRoomsByApartmentId(apartmentId));
+    } catch (Exception ex) {
+      return ResponseEntity.status(500).body(ex.getMessage());
+    }
+  }
 
 }

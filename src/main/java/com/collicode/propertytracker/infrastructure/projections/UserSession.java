@@ -23,10 +23,8 @@ public class UserSession {
   private long userId;
   @Column(name = "logged_in", nullable = false)
   private int loggedIn;
-
   @Column(name = "login_trials", nullable = false)
   private int loginTrials;
-
   @CreationTimestamp
   @Column(name = "created_at")
   private Timestamp createdAt;

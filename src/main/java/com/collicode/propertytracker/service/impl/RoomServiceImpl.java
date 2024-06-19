@@ -4,9 +4,12 @@ import com.collicode.propertytracker.exceptions.StorageException;
 import com.collicode.propertytracker.infrastructure.projections.Room;
 import com.collicode.propertytracker.infrastructure.repository.RoomRepository;
 import com.collicode.propertytracker.service.dto.request.RoomRequestDTO;
+import com.collicode.propertytracker.service.dto.response.RoomResponseDTO;
 import com.collicode.propertytracker.service.spec.RoomService;
 import java.time.LocalDateTime;
+import java.util.List;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpServerErrorException.InternalServerError;
 
 @Service
 public class RoomServiceImpl implements RoomService {
@@ -29,6 +32,18 @@ public class RoomServiceImpl implements RoomService {
     } catch (Exception e) {
       throw StorageException.exception("Error while creating room");
     }
+  }
+
+  @Override
+  public List<RoomResponseDTO> fetchRoomsByApartmentId(long apartmentId) {
+      List<Room> rooms = roomRepository.findByApartmentId(apartmentId);
+      return rooms.stream().map(room -> RoomResponseDTO.builder()
+          .roomId(room.getRoomId())
+          .roomName(room.getRoomName())
+          .condition(room.getCondition())
+          .apartmentId(room.getApartmentId())
+          .createdAt(room.getCreatedAt())
+          .build()).toList();
   }
 }
 

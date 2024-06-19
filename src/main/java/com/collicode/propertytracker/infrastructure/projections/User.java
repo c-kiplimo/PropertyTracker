@@ -1,7 +1,6 @@
 package com.collicode.propertytracker.infrastructure.projections;
 
 import com.collicode.propertytracker.infrastructure.projections.enums.UserRole;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -46,15 +45,13 @@ public class User implements UserDetails {
   private String fullName;
   private String email;
   private String msisdn;
-
   private String username;
   private String password;
-
   private String activationKey;
   private LocalDateTime activationKeyExpiryDate;
   private Boolean showImportantInfo;
 
-  // Generic default field for every model object
+
   @CreationTimestamp
   private LocalDateTime createdAt;
   @UpdateTimestamp
