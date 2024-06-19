@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PostFilter;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/api/v1/tenant")
+@RequestMapping("/api/v1/tenants")
 @RestController
 @RequiredArgsConstructor
 public class TenantApiController {

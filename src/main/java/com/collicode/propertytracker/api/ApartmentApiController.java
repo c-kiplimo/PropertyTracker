@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/api/v1/apartment")
+@RequestMapping("/api/v1/apartments")
 @RestController
 @RequiredArgsConstructor
 public class ApartmentApiController {
