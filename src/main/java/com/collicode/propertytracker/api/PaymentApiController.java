@@ -25,5 +25,18 @@ public class PaymentApiController {
             return ResponseEntity.status(500).body(ex.getMessage());
         }
     }
+    @GetMapping("/{tenantId}")
+    public ResponseEntity<?> fetchPaymentByTenantId(@RequestHeader("X-RequestId") String requestId,@PathVariable long tenantId) {
+        try {
+            return ResponseEntity.ok().body(paymentService.fetchPaymentByTenantId(tenantId));
+        } catch (StorageException ex) {
+            return ResponseEntity.status(400).body(ex.getMessage());
+        } catch (Exception ex) {
+            return ResponseEntity.status(500).body(ex.getMessage());
+        }
+    }
+    //update
+    //delete
+    //patch
 
 }
