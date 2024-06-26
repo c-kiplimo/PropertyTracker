@@ -24,6 +24,10 @@ public class PaymentsServiceImpl  implements PaymentsService{
     try {
       Payments payments = new Payments();
       payments.setAmountPaid(paymentRequestDTO.getAmountPaid());
+      payments.setBalance(paymentRequestDTO.getBalance());
+      payments.setTransactionCost(paymentRequestDTO.getTransactionCost());
+      payments.setPenaltyFee(paymentRequestDTO.getPenaltyFee());
+      payments.setDueDate(LocalDate.now());
       payments.setTenantId(paymentRequestDTO.getTenantId());
       payments.setTransactionType(paymentRequestDTO.getTransactionType());
       payments.setPaymentDate(LocalDate.now());

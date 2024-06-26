@@ -16,11 +16,11 @@ import java.time.LocalDateTime;
 public class Payments {
     @Id
     @SequenceGenerator(
-        name = "payment_sequence",
-        sequenceName = "payment_sequence",
+        name = "payments_sequence",
+        sequenceName = "payments_sequence",
         allocationSize = 1
     )
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "payment_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "payments_sequence")
     private long paymentId;
     private long tenantId;//select
     private BigDecimal balance;

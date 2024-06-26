@@ -7,6 +7,9 @@ import lombok.Getter;
 public class PaymentRequestDTO {
   private long tenantId;
   private BigDecimal amountPaid;
+  private BigDecimal balance;
+  private BigDecimal transactionCost;
+  private BigDecimal penaltyFee;
   private String transactionType;
 
 }
