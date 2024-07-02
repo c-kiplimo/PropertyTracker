@@ -12,6 +12,7 @@ public class PaymentResponseDTO {
   private long paymentId;
   private long tenantId;
   private LocalDate paymentDate;
+  private BigDecimal transactionCost;
   private BigDecimal balance;
   private BigDecimal amountPaid;
   private LocalDateTime createdAt;
