@@ -1,10 +1,13 @@
 package com.collicode.propertytracker.service.impl;
 
+import com.collicode.propertytracker.exceptions.EntityNotFoundException;
 import com.collicode.propertytracker.exceptions.StorageException;
 import com.collicode.propertytracker.infrastructure.projections.Apartment;
 import com.collicode.propertytracker.infrastructure.repository.ApartmentRepository;
 import com.collicode.propertytracker.service.dto.request.ApartmentRequestDTO;
+import com.collicode.propertytracker.service.dto.request.ApartmentUpdateRequestDTO;
 import com.collicode.propertytracker.service.spec.ApartmentService;
+import java.util.Objects;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -32,5 +35,34 @@ public class ApartmentServiceImpl implements ApartmentService {
         }
 
     }
+
+    @Override
+    public ApartmentUpdateRequestDTO updateApartment(long appartmentId,ApartmentUpdateRequestDTO apartmentUpdateRequestDTO) {
+        try {
+            Apartment apartment = apartmentRepository.findById(appartmentId)
+                .orElseThrow(() -> EntityNotFoundException.notFound("APARTMENT NOT FOUND"));
+            if (Objects.nonNull(apartmentUpdateRequestDTO.getApartmentName())){
+                apartment.setApartmentName(apartmentUpdateRequestDTO.getApartmentName());
+            }
+            apartmentRepository.save(apartment);
+        }catch (Exception e){
+            throw StorageException.exception("ERROR WHILE UPDATING APARTMENT");
+        }
+      return apartmentUpdateRequestDTO;
+    }
+
+    @Override
+    public String deleteApartment(long apartmentId) {
+        Apartment apartment = apartmentRepository.findById(apartmentId)
+            .orElseThrow(() -> EntityNotFoundException.notFound("APARTMENT NOT FOUND"));
+        try{
+            apartmentRepository.delete(apartment);
+            return "APARTMENT DELETED";
+        }catch (Exception e){
+            throw StorageException.exception("ERROR WHILE DELETING APARTMENT");
+        }
+    }
+
+
 }
 

@@ -1,7 +1,9 @@
 package com.collicode.propertytracker.api;
 
+import com.collicode.propertytracker.exceptions.EntityNotFoundException;
 import com.collicode.propertytracker.exceptions.StorageException;
 import com.collicode.propertytracker.service.dto.request.ApartmentRequestDTO;
+import com.collicode.propertytracker.service.dto.request.ApartmentUpdateRequestDTO;
 import com.collicode.propertytracker.service.spec.ApartmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -24,5 +26,30 @@ public class ApartmentApiController {
             return ResponseEntity.status(500).body(ex.getMessage());
         }
     }
+    @PutMapping("/{apartmentId}")
+    public ResponseEntity<?> updateApartment(@RequestHeader("X-RequestId") String requestId,
+                                             @PathVariable long apartmentId,
+                                             @RequestBody ApartmentUpdateRequestDTO apartmentUpdateRequestDTO) {
+        try {
+            apartmentService.updateApartment(apartmentId, apartmentUpdateRequestDTO);
+            return ResponseEntity.ok().body(apartmentUpdateRequestDTO);
+        }catch (EntityNotFoundException ex){
+            return ResponseEntity.status(404).body(ex.getMessage());
+        }catch (StorageException ex){
+            return ResponseEntity.status(500).body(ex.getMessage());
+        }
+    }
+    @DeleteMapping("/{apartmentId}")
+    public ResponseEntity<?> deleteApartment(@RequestHeader("X-RequestId") String requestId,
+                                             @PathVariable long apartmentId) {
+        try {
+            return ResponseEntity.ok().body(apartmentService.deleteApartment(apartmentId));
+        }catch (EntityNotFoundException ex){
+            return ResponseEntity.status(404).body(ex.getMessage());
+        }catch (StorageException ex){
+            return ResponseEntity.status(500).body(ex.getMessage());
+        }
+    }
+
 
 }
