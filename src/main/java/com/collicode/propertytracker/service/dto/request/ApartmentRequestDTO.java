@@ -5,7 +5,6 @@ import lombok.Getter;
 
 
 @Getter
-
 public class ApartmentRequestDTO {
     private  long agentCode;
     private String apartmentName;
