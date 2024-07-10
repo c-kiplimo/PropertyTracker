@@ -27,7 +27,7 @@ public class TenantApiController {
     @GetMapping()
      public  ResponseEntity<?> fetchTenants(@RequestHeader("X-RequestId") String requestId,@PathVariable long tenantId) {
         try {
-            return ResponseEntity.ok().body(TenantService.fetchTenantBytenantId(tenantId));
+            return ResponseEntity.ok().body(tenantService.fetchTenantByTenantId(tenantId));
 
         }catch (StorageException ex) {
             return ResponseEntity.status(400).body(ex.getMessage());
