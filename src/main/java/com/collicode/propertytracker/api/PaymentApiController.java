@@ -1,5 +1,6 @@
 package com.collicode.propertytracker.api;
 
+import com.collicode.propertytracker.exceptions.EntityNotFoundException;
 import com.collicode.propertytracker.exceptions.StorageException;
 import com.collicode.propertytracker.service.dto.request.PaymentRequestDTO;
 import com.collicode.propertytracker.service.spec.PaymentsService;
@@ -35,8 +36,19 @@ public class PaymentApiController {
             return ResponseEntity.status(500).body(ex.getMessage());
         }
     }
+    @DeleteMapping("/{apartmentId}")
+    public ResponseEntity<?> deletePayment(@RequestHeader("X-RequestId") String requestId,
+                                             @PathVariable PaymentRequestDTO paymentId) {
+        try {
+            return ResponseEntity.ok().body(paymentService.createPayment(paymentId);
+        }catch (EntityNotFoundException ex){
+            return ResponseEntity.status(404).body(ex.getMessage());
+        }catch (StorageException ex){
+            return ResponseEntity.status(500).body(ex.getMessage());
+        }
+    }
+
     //update
     //delete
-    //patch
 
 }
