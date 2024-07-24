@@ -10,7 +10,11 @@ import com.collicode.propertytracker.service.dto.response.TenantResponseDTO;
 import com.collicode.propertytracker.service.spec.TenantService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 
 import java.time.LocalDateTime;
 
@@ -61,6 +65,18 @@ public class TenantsServiceImpl  implements TenantService {
           throw StorageException.exception("ERROR WHILE CREATING TENANT");
         }
     }
+    @DeleteMapping("/{tenantId}")
+    public ResponseEntity<?> deleteTenant(@RequestHeader("X-RequestId") String requestId,
+                                             @PathVariable long tenantId) {
+        try {
+            return ResponseEntity.ok().body(TenantRepository.deleteTenant(tenantId));
+        }catch (EntityNotFoundException ex){
+            return ResponseEntity.status(404).body(ex.getMessage());
+        }catch (StorageException ex){
+            return ResponseEntity.status(500).body(ex.getMessage());
+        }
     }
+
+}
 
 

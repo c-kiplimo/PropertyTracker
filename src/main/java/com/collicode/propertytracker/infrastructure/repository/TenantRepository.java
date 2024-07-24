@@ -8,5 +8,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TenantRepository extends JpaRepository<Tenant, Long> {
 
-  Optional<Tenant> findTenantByTenantId(long tenantId);
+    static Object deleteTenant(long tenantId) {
+        return null;
+    }
+
+
+    Optional<Tenant> findTenantByTenantId(long tenantId);
 }

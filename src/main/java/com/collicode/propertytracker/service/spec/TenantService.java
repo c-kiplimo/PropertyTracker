@@ -5,6 +5,8 @@ import com.collicode.propertytracker.service.dto.response.TenantResponseDTO;
 
 public interface TenantService {
 
+
+
     TenantResponseDTO fetchTenantByTenantId(long tenantId);
 
     void createTenant(TenantRequestDTO tenantRequestDTO);
