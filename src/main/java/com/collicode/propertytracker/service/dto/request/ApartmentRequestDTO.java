@@ -8,6 +8,8 @@ import lombok.Getter;
 public class ApartmentRequestDTO {
     private  long agentCode;
     private String apartmentName;
+    private String address;
+    private String location;
 }
 
 

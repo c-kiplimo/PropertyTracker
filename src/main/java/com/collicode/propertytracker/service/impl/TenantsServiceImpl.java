@@ -29,6 +29,12 @@ public class TenantsServiceImpl  implements TenantService {
     }
 
     @Override
+    public String deleteTenant(long tenantId) {
+        tenantRepository.deleteById(tenantId);
+        return "tenant deleted successfully";
+    }
+
+    @Override
     public TenantResponseDTO fetchTenantByTenantId(long tenantId) {
     try {
         Tenant tenant=tenantRepository.findTenantByTenantId(tenantId).orElseThrow(() ->

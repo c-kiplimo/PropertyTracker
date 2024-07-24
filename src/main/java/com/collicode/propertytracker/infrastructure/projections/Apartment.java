@@ -13,11 +13,11 @@ import java.time.LocalDateTime;
 public class Apartment {
     @Id
     @SequenceGenerator(
-        name = "apartment_sequence",
-        sequenceName = "apartment_sequence",
+        name = "apartments_sequence",
+        sequenceName = "apartments_sequence",
         allocationSize = 1
     )
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "apartment_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "apartments_sequence")
     private long apartmentId;
     private long agentCode;
     private String apartmentName;

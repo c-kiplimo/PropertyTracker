@@ -6,9 +6,7 @@ import com.collicode.propertytracker.service.dto.response.TenantResponseDTO;
 public interface TenantService {
 
 
-    static Object deleteTenant(long tenantId) {
-        return null;
-    }
+    String deleteTenant(long tenantId);
 
     TenantResponseDTO fetchTenantByTenantId(long tenantId);
 

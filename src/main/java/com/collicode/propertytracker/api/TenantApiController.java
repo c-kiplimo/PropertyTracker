@@ -40,7 +40,7 @@ public class TenantApiController {
     public ResponseEntity<?> deleteTenant(@RequestHeader("X-RequestId") String requestId,
                                           @PathVariable long tenantId) {
         try {
-            return ResponseEntity.ok().body(TenantService.deleteTenant(tenantId));
+            return ResponseEntity.ok().body(tenantService.deleteTenant(tenantId));
         } catch (EntityNotFoundException ex) {
             return ResponseEntity.status(404).body(ex.getMessage());
         } catch (StorageException ex) {
