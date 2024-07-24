@@ -47,6 +47,11 @@ public class PaymentsServiceImpl  implements PaymentsService{
     return getPaymentsDtoMapper(fetchedPayments);
   }
 
+  @Override
+  public Object deletePayment(PaymentRequestDTO paymentId) {
+    return null;
+  }
+
   private static List<PaymentResponseDTO> getPaymentsDtoMapper(List<Payments> fetchedPayments) {
     return fetchedPayments.stream().map(payments -> PaymentResponseDTO.builder()
         .tenantId(payments.getTenantId())
