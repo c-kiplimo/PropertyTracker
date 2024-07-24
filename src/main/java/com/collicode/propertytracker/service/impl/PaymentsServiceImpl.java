@@ -4,6 +4,7 @@ import com.collicode.propertytracker.exceptions.StorageException;
 import com.collicode.propertytracker.infrastructure.projections.Payments;
 import com.collicode.propertytracker.infrastructure.repository.PaymentRepository;
 import com.collicode.propertytracker.service.dto.request.PaymentRequestDTO;
+import com.collicode.propertytracker.service.dto.request.PaymentUpdateRequestDTO;
 import com.collicode.propertytracker.service.dto.response.PaymentResponseDTO;
 import com.collicode.propertytracker.service.spec.PaymentsService;
 import java.time.LocalDate;
@@ -45,6 +46,13 @@ public class PaymentsServiceImpl  implements PaymentsService{
     List<Payments> fetchedPayments = paymentRepository.findByTenantId(tenantId);
      //map the fetched payments to the response dto
     return getPaymentsDtoMapper(fetchedPayments);
+  }
+
+
+
+  @Override
+  public void updatePayment(long paymentId, PaymentUpdateRequestDTO paymentUpdateRequestDTO) {
+
   }
 
   private static List<PaymentResponseDTO> getPaymentsDtoMapper(List<Payments> fetchedPayments) {

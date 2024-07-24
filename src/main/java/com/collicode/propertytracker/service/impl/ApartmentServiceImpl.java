@@ -28,6 +28,8 @@ public class ApartmentServiceImpl implements ApartmentService {
             Apartment apartment = new Apartment();
             apartment.setAgentCode(apartmentRequestDTO.getAgentCode());
             apartment.setApartmentName(apartmentRequestDTO.getApartmentName());
+            apartment.setAddress(apartmentRequestDTO.getAddress());
+            apartment.setLocation(apartmentRequestDTO.getLocation());
             apartment.setCreatedAt(LocalDateTime.now());
             apartmentRepository.save(apartment);
         } catch (Exception e) {

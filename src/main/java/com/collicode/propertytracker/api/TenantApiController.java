@@ -1,5 +1,6 @@
 package com.collicode.propertytracker.api;
 
+import com.collicode.propertytracker.exceptions.EntityNotFoundException;
 import com.collicode.propertytracker.exceptions.StorageException;
 import com.collicode.propertytracker.service.dto.request.TenantRequestDTO;
 import com.collicode.propertytracker.service.spec.TenantService;
@@ -35,5 +36,15 @@ public class TenantApiController {
             return ResponseEntity.status(500).body(ex.getMessage());
         }
     }
-
+    @DeleteMapping("/{tenantId}")
+    public ResponseEntity<?> deleteTenant(@RequestHeader("X-RequestId") String requestId,
+                                          @PathVariable long tenantId) {
+        try {
+            return ResponseEntity.ok().body(tenantService.deleteTenant(tenantId));
+        } catch (EntityNotFoundException ex) {
+            return ResponseEntity.status(404).body(ex.getMessage());
+        } catch (StorageException ex) {
+            return ResponseEntity.status(500).body(ex.getMessage());
+        }
+    }
 }

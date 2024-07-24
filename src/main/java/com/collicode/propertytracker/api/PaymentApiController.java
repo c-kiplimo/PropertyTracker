@@ -1,7 +1,9 @@
 package com.collicode.propertytracker.api;
 
+import com.collicode.propertytracker.exceptions.EntityNotFoundException;
 import com.collicode.propertytracker.exceptions.StorageException;
 import com.collicode.propertytracker.service.dto.request.PaymentRequestDTO;
+import com.collicode.propertytracker.service.dto.request.PaymentUpdateRequestDTO;
 import com.collicode.propertytracker.service.spec.PaymentsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +27,9 @@ public class PaymentApiController {
             return ResponseEntity.status(500).body(ex.getMessage());
         }
     }
+
     @GetMapping("/{tenantId}")
-    public ResponseEntity<?> fetchPaymentByTenantId(@RequestHeader("X-RequestId") String requestId,@PathVariable long tenantId) {
+    public ResponseEntity<?> fetchPaymentByTenantId(@RequestHeader("X-RequestId") String requestId, @PathVariable long tenantId) {
         try {
             return ResponseEntity.ok().body(paymentService.fetchPaymentByTenantId(tenantId));
         } catch (StorageException ex) {
@@ -35,8 +38,24 @@ public class PaymentApiController {
             return ResponseEntity.status(500).body(ex.getMessage());
         }
     }
-    //update
-    //delete
-    //patch
 
-}
+
+    @PutMapping("/{paymentId}")
+    public ResponseEntity<?> updatepayment(@RequestHeader("X-RequestId") String requestId,
+                                             @PathVariable long paymentId,
+                                           @RequestBody PaymentUpdateRequestDTO paymentUpdateRequestDTO) {
+        try {
+            paymentService.updatePayment(paymentId, paymentUpdateRequestDTO);
+            return ResponseEntity.ok().body(paymentUpdateRequestDTO);
+        } catch (EntityNotFoundException ex) {
+            return ResponseEntity.status(404).body(ex.getMessage());
+        } catch (StorageException ex) {
+            return ResponseEntity.status(500).body(ex.getMessage());
+        }
+    }
+
+            //update
+            //delete
+
+
+        }
