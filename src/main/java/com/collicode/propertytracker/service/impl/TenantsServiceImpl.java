@@ -65,17 +65,7 @@ public class TenantsServiceImpl  implements TenantService {
           throw StorageException.exception("ERROR WHILE CREATING TENANT");
         }
     }
-    @DeleteMapping("/{tenantId}")
-    public ResponseEntity<?> deleteTenant(@RequestHeader("X-RequestId") String requestId,
-                                             @PathVariable long tenantId) {
-        try {
-            return ResponseEntity.ok().body(TenantRepository.deleteTenant(tenantId));
-        }catch (EntityNotFoundException ex){
-            return ResponseEntity.status(404).body(ex.getMessage());
-        }catch (StorageException ex){
-            return ResponseEntity.status(500).body(ex.getMessage());
-        }
-    }
+
 
 }
 

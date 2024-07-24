@@ -3,6 +3,7 @@ package com.collicode.propertytracker.api;
 import com.collicode.propertytracker.exceptions.EntityNotFoundException;
 import com.collicode.propertytracker.exceptions.StorageException;
 import com.collicode.propertytracker.service.dto.request.PaymentRequestDTO;
+import com.collicode.propertytracker.service.dto.request.PaymentUpdateRequestDTO;
 import com.collicode.propertytracker.service.spec.PaymentsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -38,21 +39,23 @@ public class PaymentApiController {
         }
     }
 
-    @DeleteMapping("/{paymentId}")
-    public ResponseEntity<?> deletePayment(@RequestHeader("X-RequestId") String requestId,
-                                           @PathVariable PaymentRequestDTO paymentId) {
+
+    @PutMapping("/{paymentId}")
+    public ResponseEntity<?> updatepayment(@RequestHeader("X-RequestId") String requestId,
+                                             @PathVariable long paymentId,
+                                           @RequestBody PaymentUpdateRequestDTO paymentUpdateRequestDTO) {
         try {
-            return ResponseEntity.ok().body(paymentService.deletePayment(paymentId));
+            paymentService.updatePayment(paymentId, paymentUpdateRequestDTO);
+            return ResponseEntity.ok().body(paymentUpdateRequestDTO);
         } catch (EntityNotFoundException ex) {
             return ResponseEntity.status(404).body(ex.getMessage());
         } catch (StorageException ex) {
             return ResponseEntity.status(500).body(ex.getMessage());
         }
     }
-}
+
+            //update
+            //delete
 
 
-    //update
-    //delete
-
-
+        }
