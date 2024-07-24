@@ -26,8 +26,9 @@ public class PaymentApiController {
             return ResponseEntity.status(500).body(ex.getMessage());
         }
     }
+
     @GetMapping("/{tenantId}")
-    public ResponseEntity<?> fetchPaymentByTenantId(@RequestHeader("X-RequestId") String requestId,@PathVariable long tenantId) {
+    public ResponseEntity<?> fetchPaymentByTenantId(@RequestHeader("X-RequestId") String requestId, @PathVariable long tenantId) {
         try {
             return ResponseEntity.ok().body(paymentService.fetchPaymentByTenantId(tenantId));
         } catch (StorageException ex) {
@@ -36,19 +37,22 @@ public class PaymentApiController {
             return ResponseEntity.status(500).body(ex.getMessage());
         }
     }
-    @DeleteMapping("/{apartmentId}")
+
+    @DeleteMapping("/{paymentId}")
     public ResponseEntity<?> deletePayment(@RequestHeader("X-RequestId") String requestId,
-                                             @PathVariable PaymentRequestDTO paymentId) {
+                                           @PathVariable PaymentRequestDTO paymentId) {
         try {
-            return ResponseEntity.ok().body(paymentService.createPayment(paymentId);
-        }catch (EntityNotFoundException ex){
+            return ResponseEntity.ok().body(paymentService.deletePayment(paymentId));
+        } catch (EntityNotFoundException ex) {
             return ResponseEntity.status(404).body(ex.getMessage());
-        }catch (StorageException ex){
+        } catch (StorageException ex) {
             return ResponseEntity.status(500).body(ex.getMessage());
         }
     }
+}
+
 
     //update
     //delete
 
-}
+

@@ -8,4 +8,5 @@ public interface PaymentsService {
   void createPayment(PaymentRequestDTO paymentRequestDTO);
   List<PaymentResponseDTO> fetchPaymentByTenantId(long tenantId);
 
+  Object deletePayment(PaymentRequestDTO paymentId);
 }
