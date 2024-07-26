@@ -4,6 +4,7 @@ import com.collicode.propertytracker.exceptions.StorageException;
 import com.collicode.propertytracker.infrastructure.projections.Room;
 import com.collicode.propertytracker.infrastructure.repository.RoomRepository;
 import com.collicode.propertytracker.service.dto.request.RoomRequestDTO;
+import com.collicode.propertytracker.service.dto.request.RoomUpdateRequestDTO;
 import com.collicode.propertytracker.service.dto.response.RoomResponseDTO;
 import com.collicode.propertytracker.service.spec.RoomService;
 import java.time.LocalDateTime;
@@ -44,6 +45,16 @@ public class RoomServiceImpl implements RoomService {
           .apartmentId(room.getApartmentId())
           .createdAt(room.getCreatedAt())
           .build()).toList();
+  }
+
+  @Override
+  public void updateRoom(long roomId, RoomUpdateRequestDTO roomUpdateRequestDTO) {
+
+  }
+
+  @Override
+  public String deleteApartment(long roomId) {
+    return "";
   }
 }
 

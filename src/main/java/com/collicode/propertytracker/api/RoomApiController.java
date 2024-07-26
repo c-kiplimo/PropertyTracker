@@ -1,7 +1,10 @@
 package com.collicode.propertytracker.api;
 
+import com.collicode.propertytracker.exceptions.EntityNotFoundException;
 import com.collicode.propertytracker.exceptions.StorageException;
+import com.collicode.propertytracker.service.dto.request.ApartmentUpdateRequestDTO;
 import com.collicode.propertytracker.service.dto.request.RoomRequestDTO;
+import com.collicode.propertytracker.service.dto.request.RoomUpdateRequestDTO;
 import com.collicode.propertytracker.service.spec.RoomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +27,7 @@ public class RoomApiController {
       return ResponseEntity.status(500).body(ex.getMessage());
     }
   }
-  @GetMapping("/{apartmentId}")
+  @GetMapping("/{roomId}")
   public ResponseEntity<?> fetchRoomsByApartmentId(@RequestHeader("X-RequestId") String requestId,@PathVariable long apartmentId) {
     try {
       return ResponseEntity.ok().body(roomService.fetchRoomsByApartmentId(apartmentId));
@@ -32,5 +35,30 @@ public class RoomApiController {
       return ResponseEntity.status(500).body(ex.getMessage());
     }
   }
+  @PutMapping("/{roomId}")
+  public ResponseEntity<?> updateRoom(@RequestHeader("X-RequestId") String requestId,
+                                           @PathVariable long roomId,
+                                           @RequestBody RoomUpdateRequestDTO roomUpdateRequestDTO) {
+    try {
+      roomService.updateRoom(roomId, roomUpdateRequestDTO);
+      return ResponseEntity.ok().body(roomUpdateRequestDTO);
+    }catch (EntityNotFoundException ex){
+      return ResponseEntity.status(404).body(ex.getMessage());
+    }catch (StorageException ex){
+      return ResponseEntity.status(500).body(ex.getMessage());
+    }
+  }
+  @DeleteMapping("/{roomId}")
+  public ResponseEntity<?> deleteRoom(@RequestHeader("X-RequestId") String requestId,
+                                           @PathVariable long roomId) {
+    try {
+      return ResponseEntity.ok().body(roomService.deleteApartment(roomId));
+    }catch (EntityNotFoundException ex){
+      return ResponseEntity.status(404).body(ex.getMessage());
+    }catch (StorageException ex){
+      return ResponseEntity.status(500).body(ex.getMessage());
+    }
+  }
+
 
 }
