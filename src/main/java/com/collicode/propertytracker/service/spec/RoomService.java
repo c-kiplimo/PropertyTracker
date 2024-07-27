@@ -11,7 +11,7 @@ public interface RoomService {
   void createRoom(RoomRequestDTO roomRequestDTO);
   List<RoomResponseDTO> fetchRoomsByApartmentId(long apartmentId);
 
-    void updateRoom(long roomId, RoomUpdateRequestDTO roomUpdateRequestDTO);
+    RoomUpdateRequestDTO updateRoom(long roomId, RoomUpdateRequestDTO roomUpdateRequestDTO);
 
-  String deleteApartment(long roomId);
-}
+  String deleteApartment(long roomId);}
+

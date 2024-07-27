@@ -27,7 +27,7 @@ public class RoomApiController {
       return ResponseEntity.status(500).body(ex.getMessage());
     }
   }
-  @GetMapping("/{roomId}")
+  @GetMapping("/{apartmentId}")
   public ResponseEntity<?> fetchRoomsByApartmentId(@RequestHeader("X-RequestId") String requestId,@PathVariable long apartmentId) {
     try {
       return ResponseEntity.ok().body(roomService.fetchRoomsByApartmentId(apartmentId));
@@ -35,7 +35,7 @@ public class RoomApiController {
       return ResponseEntity.status(500).body(ex.getMessage());
     }
   }
-  @PutMapping("/{roomId}")
+  @PutMapping("/{apartmentId}")
   public ResponseEntity<?> updateRoom(@RequestHeader("X-RequestId") String requestId,
                                            @PathVariable long roomId,
                                            @RequestBody RoomUpdateRequestDTO roomUpdateRequestDTO) {
@@ -48,7 +48,7 @@ public class RoomApiController {
       return ResponseEntity.status(500).body(ex.getMessage());
     }
   }
-  @DeleteMapping("/{roomId}")
+  @DeleteMapping("/apartmentId")
   public ResponseEntity<?> deleteRoom(@RequestHeader("X-RequestId") String requestId,
                                            @PathVariable long roomId) {
     try {
