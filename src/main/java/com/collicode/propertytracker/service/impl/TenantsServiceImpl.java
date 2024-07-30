@@ -6,6 +6,7 @@ import com.collicode.propertytracker.exceptions.StorageException;
 import com.collicode.propertytracker.infrastructure.projections.Tenant;
 import com.collicode.propertytracker.infrastructure.repository.TenantRepository;
 import com.collicode.propertytracker.service.dto.request.TenantRequestDTO;
+import com.collicode.propertytracker.service.dto.request.TenantUpdateRequestDTO;
 import com.collicode.propertytracker.service.dto.response.TenantResponseDTO;
 import com.collicode.propertytracker.service.spec.TenantService;
 import org.slf4j.Logger;
@@ -70,6 +71,11 @@ public class TenantsServiceImpl  implements TenantService {
         } catch (Exception e){
           throw StorageException.exception("ERROR WHILE CREATING TENANT");
         }
+    }
+
+    @Override
+    public TenantUpdateRequestDTO updateTenant(long tenantId, TenantUpdateRequestDTO tenantUpdateRequestDTO) {
+        return null;
     }
 
 
