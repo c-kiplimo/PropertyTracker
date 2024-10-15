@@ -1,7 +1,7 @@
 package com.collicode.propertytracker.service.impl;
 
 import com.collicode.propertytracker.exceptions.StorageException;
-import com.collicode.propertytracker.infrastructure.projections.Room;
+import com.collicode.propertytracker.infrastructure.model.Room;
 import com.collicode.propertytracker.infrastructure.repository.RoomRepository;
 import com.collicode.propertytracker.service.dto.request.RoomRequestDTO;
 import com.collicode.propertytracker.service.dto.response.RoomResponseDTO;
@@ -9,7 +9,6 @@ import com.collicode.propertytracker.service.spec.RoomService;
 import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpServerErrorException.InternalServerError;
 
 @Service
 public class RoomServiceImpl implements RoomService {

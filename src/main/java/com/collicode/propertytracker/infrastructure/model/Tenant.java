@@ -1,4 +1,4 @@
-package com.collicode.propertytracker.infrastructure.projections;
+package com.collicode.propertytracker.infrastructure.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;

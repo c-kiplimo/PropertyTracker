@@ -1,7 +1,7 @@
 package com.collicode.propertytracker.service.impl;
 
 import com.collicode.propertytracker.exceptions.StorageException;
-import com.collicode.propertytracker.infrastructure.projections.Payments;
+import com.collicode.propertytracker.infrastructure.model.Payments;
 import com.collicode.propertytracker.infrastructure.repository.PaymentRepository;
 import com.collicode.propertytracker.service.dto.request.PaymentRequestDTO;
 import com.collicode.propertytracker.service.dto.response.PaymentResponseDTO;

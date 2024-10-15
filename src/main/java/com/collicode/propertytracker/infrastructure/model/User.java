@@ -1,6 +1,6 @@
-package com.collicode.propertytracker.infrastructure.projections;
+package com.collicode.propertytracker.infrastructure.model;
 
-import com.collicode.propertytracker.infrastructure.projections.enums.UserRole;
+import com.collicode.propertytracker.infrastructure.model.enums.UserRole;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -47,6 +47,7 @@ public class User implements UserDetails {
   private String msisdn;
   private String username;
   private String password;
+  private String secret;
   private String activationKey;
   private LocalDateTime activationKeyExpiryDate;
   private Boolean showImportantInfo;
@@ -139,6 +140,7 @@ public class User implements UserDetails {
   public boolean isEnabled() {
     return enabled;
   }
+
 
 
 }

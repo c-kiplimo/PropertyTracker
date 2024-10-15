@@ -2,7 +2,7 @@ package com.collicode.propertytracker.service.impl;
 
 import com.collicode.propertytracker.exceptions.EntityNotFoundException;
 import com.collicode.propertytracker.exceptions.StorageException;
-import com.collicode.propertytracker.infrastructure.projections.Apartment;
+import com.collicode.propertytracker.infrastructure.model.Apartment;
 import com.collicode.propertytracker.infrastructure.repository.ApartmentRepository;
 import com.collicode.propertytracker.service.dto.request.ApartmentRequestDTO;
 import com.collicode.propertytracker.service.dto.request.ApartmentUpdateRequestDTO;

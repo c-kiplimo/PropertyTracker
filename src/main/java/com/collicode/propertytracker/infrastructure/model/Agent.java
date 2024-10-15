@@ -1,7 +1,6 @@
-package com.collicode.propertytracker.infrastructure.projections;
+package com.collicode.propertytracker.infrastructure.model;
 
-import com.collicode.propertytracker.infrastructure.projections.enums.AgentStatus;
-import jakarta.persistence.Column;
+import com.collicode.propertytracker.infrastructure.model.enums.AgentStatus;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -11,13 +10,19 @@ import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Table(name = "tbl_agents")
 @Entity
 @Getter
 @Setter
+@Builder
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class Agent {
 
   @Id
@@ -27,7 +32,7 @@ public class Agent {
       allocationSize = 1
   )
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "agent_sequence")
-  private long agentCode;
+  private Long agentCode;
   private String firstName;
   private String lastName;
   private String fullName;
@@ -42,6 +47,7 @@ public class Agent {
   private LocalDateTime createdAt;
   private LocalDateTime updatedAt;
   private String auditInfo;
+
 
 
 }

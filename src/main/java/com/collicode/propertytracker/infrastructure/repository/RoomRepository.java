@@ -1,6 +1,6 @@
 package com.collicode.propertytracker.infrastructure.repository;
 
-import com.collicode.propertytracker.infrastructure.projections.Room;
+import com.collicode.propertytracker.infrastructure.model.Room;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

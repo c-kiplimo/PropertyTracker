@@ -1,4 +1,4 @@
-package com.collicode.propertytracker.infrastructure.projections.enums;
+package com.collicode.propertytracker.infrastructure.model.enums;
 
 public enum AgentStatus {
   INCOMPLETE,
