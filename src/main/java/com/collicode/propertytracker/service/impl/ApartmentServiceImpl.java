@@ -39,9 +39,9 @@ public class ApartmentServiceImpl implements ApartmentService {
     }
 
     @Override
-    public ApartmentUpdateRequestDTO updateApartment(long appartmentId,ApartmentUpdateRequestDTO apartmentUpdateRequestDTO) {
+    public ApartmentUpdateRequestDTO updateApartment(long apartmentId,ApartmentUpdateRequestDTO apartmentUpdateRequestDTO) {
         try {
-            Apartment apartment = apartmentRepository.findById(appartmentId)
+            Apartment apartment = apartmentRepository.findById(apartmentId)
                 .orElseThrow(() -> EntityNotFoundException.notFound("APARTMENT NOT FOUND"));
             if (Objects.nonNull(apartmentUpdateRequestDTO.getApartmentName())){
                 apartment.setApartmentName(apartmentUpdateRequestDTO.getApartmentName());
