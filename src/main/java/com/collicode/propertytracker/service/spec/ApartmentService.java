@@ -6,7 +6,7 @@ import com.collicode.propertytracker.service.dto.request.ApartmentUpdateRequestD
 
 public interface ApartmentService {
     void  createApartment(ApartmentRequestDTO apartmentRequestDTO);
-    ApartmentUpdateRequestDTO updateApartment(long appartmentId,ApartmentUpdateRequestDTO apartmentUpdateRequestDTO);
+    ApartmentUpdateRequestDTO updateApartment(long apartmentId,ApartmentUpdateRequestDTO apartmentUpdateRequestDTO);
     String deleteApartment(long apartmentId);
 
 }
